@@ -14,8 +14,10 @@ while n < 10000:
 
                 
         if (t == 0):
-            print (b)
             n = n+1
             a.append(b)
+
+print (b)
+
 
                 
