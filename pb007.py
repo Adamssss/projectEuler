@@ -8,7 +8,7 @@ while n < 10000:
         b = b+2
         i = 0
         t = 0
-        while (a[i]*a[i] < b):
+        while (a[i]*a[i] < b)and (t == 0):
             i=i+1
             if (b%a[i] == 0):
                 t = 1
