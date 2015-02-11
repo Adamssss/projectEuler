@@ -1,4 +1,11 @@
-print ("hello")
-a = [1,2]
-print (a[1])
 
+x = 0
+
+def add(y):
+    global x
+    x += y
+
+
+add(3)
+add(18)
+print (x)
