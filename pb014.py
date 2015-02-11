@@ -9,12 +9,13 @@ def collatz(n,length):
     
     return collatz(3*n+1,length)
 
-print (collatz(13,1))
+string = []
+for i in range(0,1000000):
+    string.append(collatz(i+1,1))
 
 largest = 0
 for i in range(0,1000000):
-    length = collatz(i,1)
-    if length > largest:
-        largest = length
+    if string[i] > largest:
+        largest = string[i]
+        print (i+1)
 
-print(largest)
