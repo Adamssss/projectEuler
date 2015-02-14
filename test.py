@@ -1,11 +1,9 @@
+string1 = "abc"
+string2 = "Abd"
 
-x = 0
+if string1 > string2:
+    print (string1)
 
-def add(y):
-    global x
-    x += y
+if string1 < string2:
+    print (string2)
 
-
-add(3)
-add(18)
-print (x)
