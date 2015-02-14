@@ -6,7 +6,9 @@
 a = [2,3,5]
 n = 2
 
-while n < 10000:
+N = 28124
+
+while a[n] < N:
     b = a[n]
     t = 1
     while (t == 1):
@@ -48,29 +50,32 @@ def spd(number):
 
     return spd - originNumber
 
-N = 28124
+
 # find the abudant numbers
 abundant = []
 for i in range(1,N):
     if spd(i)>i:
         abundant.append(i)
 
+# print (abundant)
 
 length = len(abundant)
 total = 0
 for i in range(1,N):
-    j = 0
     isPossible = 0
+    j = 0
     while isPossible == 0 and j < length:
-        if (i-abundant[j]) in abundant:
-           isPossible = 1           
-        j = j+1
+        if i-abundant[j]*2 >= 0:
+            if (i- abundant[j]) in abundant:
+                isPossible = 1
+        j += 1
 
     if isPossible == 0:
         total += i
 
 print (total)
-        
+
+            
     
     
 
