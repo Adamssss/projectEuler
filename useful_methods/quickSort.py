@@ -1,4 +1,3 @@
-
 #quick sort
 def quickSort(L, low, high):
     i = low 
@@ -18,3 +17,8 @@ def quickSort(L, low, high):
     quickSort(L, j+1, high)
     return L
 
+lst = [3,1,4,1,5,9,2,6,5,3,5,8,9,7,9,3,2,3,8,4,6,2,6]
+
+lst = quickSort(lst,0,len(lst)-1)
+
+print (lst)
