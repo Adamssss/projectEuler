@@ -1,51 +1,19 @@
-coinMakeUp = []
-coinMakeUp.append([200,0,0,0,0,0,0,0,0])
-# the money that has not be contributed and the coins for
-# 200,100,50,20,10,5,2,1
-coins = [200,100,50,20,10,5,2,1]
-
-t = 1
-while t > 0:
-    temp = coinMakeUp[-1][:]
-    if temp[0] > 0:
-        for i in range(0,8):
-            dig = temp[0]//coins[i]
-            if dig > 0:
-                temp[i+1] += dig
-                temp[0] -= dig*coins[i]
-
-        coinMakeUp.append(temp)
-        
-    else:
-        j = 7
-        while temp[j] == 0:
-            j -= 1
-
-        temp[j] -= 1
-        temp[0] += coins[j-1]
-        for k in range(j+1,9):
-            temp[0] += temp[k]*coins[k-1]
-            temp[k] = 0
-            
-        dig = temp[0]//coins[j]
-        temp[j+1] += dig
-        temp[0] -= dig*coins[j]
-        coinMakeUp.append(temp)
-       
-    #print(temp)   
-
-    t = 0
-    for i in range(0,8):
-        t += temp[i]
+# f(i,j) = f(i-1,j)+f(i,j-Pi)
+# i kinds of notes to make up money equals j
 
 
-count = 0
-for i in range(0,len(coinMakeUp)):
-    if coinMakeUp[i][0] == 0:
-        count += 1
-        
-print (count)
-                
+coins = [1,2,5,10,20,50,100,200]
 
+def f(i,j):
+    if i == 1:
+        return 1
+    if i == 0:
+        return 0
+    if j < 0:
+        return 0
+    if j == 0:
+        return 1
+    return f(i-1,j)+f(i,j-coins[i-1])
 
     
+print (f(8,200))
