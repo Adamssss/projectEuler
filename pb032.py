@@ -3,8 +3,38 @@
 
 allTheSeq = []
 allTheSeq.append([1,2,3,4,5])
-while  not allTheSeq[-1] == [9,8,7,6,5]:
-    temp = allTheSeq[-1][:]
 
-                
+def dfs(seq,x):
+    #print(seq,x)
+    L = 5
+    Q = 6
+    if seq[0] > Q:
+        return seq
+    temp = seq[:]
+    if x == L-1 and(not temp[x] in temp[0:x]) and temp[x] <= Q:
+        print (temp)
+    if x == 0:
+        temp[x+1] = 1
+        x += 1
+    elif x < L-1 and (not temp[x] in temp[0:x]) and temp[x] <= Q:
+        temp[x+1] = 1
+        x += 1
+    else:
+        temp[x] += 1
+        if temp[x] > Q:
+            temp[x-1] += 1
+            temp[x] = 1
+            x -= 1
+
+    dfs(temp,x)
+        
+            
+
+
+
+        
+
+        
+dfs([1,2,3,4,5],4)
+    
         
