@@ -61,23 +61,42 @@ for i in range(1,N):
     if spd(i)>i:
         abundant.append(i)
 
+#print (len(abundant))
+
 # 28124/2 = 14062
 #print (abundant[3489],abundant[3490])
 
-total = 0
-possibleSums = []
-for i in range(0,3490):
-    for j in range(i,len(abundant)):
-        ps = abundant[i] + abundant[j]
-        if ps < N and not ps in possibleSums:
-            possibleSums.append(ps)
-            total += ps
+# define a binary search for the list abundant
+def inAbundant(item):
+    firstPoint = 0
+    endPoint = len(abundant)-1
+    index = -1
+    while firstPoint <= endPoint:
+        midPoint = (firstPoint+endPoint)//2
+        if abundant[midPoint] == item:
+            index = midPoint
+            return index
+        elif item > abundant[midPoint]:
+            firstPoint = midPoint +1
+        else:
+            endPoint = midPoint -1
 
-totalAll = N*(N-1)//2
+    return index
 
-print (totalAll - total)
 
-            
+
+total = N*(N-1)//2
+for i in range(1,N):
+    isPossible = 0
+    j = 0
+    while isPossible == 0 and j < 3490:
+        if (i- abundant[j]) >= 0 and inAbundant(i- abundant[j]) >= 0:
+            isPossible = 1
+            total -= i
+        j += 1
+
+
+print (total)          
     
     
 
