@@ -24,6 +24,14 @@ while a[n] < N:
         if (t == 0):
             n = n+1
             a.append(b)
+            
+#power: x to the y power
+def power(x,y):
+    product = 1
+    for i in range(0,y):
+        product *= x
+    return product
+
 
 # to find out the sum of the proper divsor
 def spd(number):
@@ -37,12 +45,8 @@ def spd(number):
             number = number / a[i]
             
         if count > 0:
-            spdtemp = 1
-            while count > 0:
-                spdtemp = spdtemp *a[i] +1
-                count -= 1
-            
-                
+            spdtemp = power(a[i],count+1)-1
+            spdtemp = spdtemp // (a[i] - 1)
             spd *= spdtemp
             count = 0
             
@@ -57,23 +61,21 @@ for i in range(1,N):
     if spd(i)>i:
         abundant.append(i)
 
-# print (abundant)
+# 28124/2 = 14062
+#print (abundant[3489],abundant[3490])
 
-length = len(abundant)
 total = 0
-for i in range(1,N):
-    isPossible = 0
-    j = 0
-    while isPossible == 0 and j < length:
-        if i-abundant[j]*2 >= 0:
-            if (i- abundant[j]) in abundant:
-                isPossible = 1
-        j += 1
+possibleSums = []
+for i in range(0,3490):
+    for j in range(i,len(abundant)):
+        ps = abundant[i] + abundant[j]
+        if ps < N and not ps in possibleSums:
+            possibleSums.append(ps)
+            total += ps
 
-    if isPossible == 0:
-        total += i
+totalAll = N*(N-1)//2
 
-print (total)
+print (totalAll - total)
 
             
     
