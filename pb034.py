@@ -6,6 +6,7 @@ for i in range(2,10):
 
 total = 0
 
+# 2 digits
 for i in range(1,5):
     for j in range(0,5):
         a = i*10 +j
@@ -14,6 +15,7 @@ for i in range(1,5):
             #print (a)
             total += a
 
+# 3 digits
 for i in range(1,7):
     for j in range(0,7):
         for k in range(0,7):
@@ -23,6 +25,7 @@ for i in range(1,7):
                 #print (a)
                 total += a
 
+# 4 digits
 for i in range(1,8):
     for j in range(0,8):
         for k in range(0,8):
@@ -33,6 +36,7 @@ for i in range(1,8):
                     #print (a)
                     total += a
 
+# 5 digits
 for i in range(1,9):
     for j in range(0,9):
         for k in range(0,9):
@@ -44,6 +48,7 @@ for i in range(1,9):
                         #print (a)
                         total += a
 
+# 6 digits
 for i in range(1,10):
     for j in range(0,10):
         for k in range(0,10):
@@ -55,6 +60,20 @@ for i in range(1,10):
                         if a-b == 0:
                             #print (a)
                             total += a
+
+# 7 digits
+for i in range(1,3):
+    for j in range(8,10):
+        for k in range(8,10):
+            for l in range(8,10):
+                for m in range(8,10):
+                    for n in range(8,10):
+                        for o in range(8,10):
+                            a = i*1000000+j*100000+k*10000+l*1000+m*100+n*10+o
+                            b = fac[i]+fac[j]+fac[k]+fac[l]+fac[m]+fac[n]+fac[o]
+                            if a-b == 0:
+                                #print (a)
+                                total += a
 
 print (total)
 
