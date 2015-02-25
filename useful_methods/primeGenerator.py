@@ -1,7 +1,7 @@
 prime = [2,3,5]
 primen = 2
 
-while prime[primen] < 10000:
+while prime[primen] < 100000:
     b = prime[primen]
     t = 1
     while (t == 1):
@@ -18,4 +18,4 @@ while prime[primen] < 10000:
             primen += 1
             prime.append(b)
 
-print (b)
+print (len(prime)-1)

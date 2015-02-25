@@ -1,9 +1,6 @@
-string1 = "abc"
-string2 = "Abd"
+a = [1,2,3]
+b = [4,5,6]
 
-if string1 > string2:
-    print (string1)
+print(a+b)
 
-if string1 < string2:
-    print (string2)
-
+print([1,2,3].remove(3))
