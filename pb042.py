@@ -1,3 +1,4 @@
+import math
 
 # read the words into a list
 f = open('pb042_words.txt','r')
@@ -16,7 +17,17 @@ def valueOf(word):
         
     return value
 
-print (valueOf(words[2]))
 
+# n(n+1)/2
 def isTriangle(x):
-    
+    n = math.floor(math.sqrt(2*x))
+    if n*(n+1) == 2*x:
+        return True
+    return False
+
+count = 0
+for i in range(0,len(words)):
+    if isTriangle(valueOf(words[i])):
+        count += 1
+
+print (count)
