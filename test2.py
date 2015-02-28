@@ -1,24 +1,21 @@
-#quick sort
-def quickSort(L, low, high):
-    i = low 
-    j = high
-    if i >= j:
-        return L
-    key = L[i]
-    while i < j:
-        while i < j and L[j] >= key:
-            j = j-1                                                             
-        L[i] = L[j]
-        while i < j and L[i] <= key:    
-            i = i+1 
-        L[j] = L[i]
-    L[i] = key 
-    quickSort(L, low, i-1)
-    quickSort(L, j+1, high)
-    return L
+import math
 
-lst = [3,1,4,1,5,9,2,6,5,3,5,8,9,7,9,3,2,3,8,4,6,2,6]
+def isPrime(num):
+    if num%2 == 0:
+        return False
+    i = 3
+    while i < math.sqrt(num):
+        if num%i == 0:
+            return False
+        i += 2
+    return True
 
-lst = quickSort(lst,0,len(lst)-1)
-
-print (lst)
+print(isPrime(121313))
+print(isPrime(222323))
+print(isPrime(323333))
+print(isPrime(424343))
+print(isPrime(525353))
+print(isPrime(626363))
+print(isPrime(727373))
+print(isPrime(828383))
+print(isPrime(929393))
