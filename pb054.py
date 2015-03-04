@@ -1,6 +1,6 @@
 import math
 
-# read the words into a list
+# read the pokers into a list
 f = open('pb054_poker.txt','r')
 
 games = f.read().split('\n')
