@@ -1,4 +1,7 @@
 import math
+import time
+
+t1 = time.time()
 
 it = []
 it.append([3,2])
@@ -17,3 +20,5 @@ for i in range(0,1000):
         count += 1
 
 print (count)
+
+print("time:",time.time()-t1)

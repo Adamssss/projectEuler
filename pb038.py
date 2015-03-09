@@ -1,3 +1,7 @@
+import time
+
+t1 = time.time()
+
 # suppose its 9876 and (1,2)
 i = 9876
 t = 0
@@ -27,3 +31,5 @@ while t == 0:
         t = 1
 
 print (i*100002)
+
+print("time:",time.time()-t1)

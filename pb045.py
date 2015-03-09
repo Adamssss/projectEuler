@@ -1,4 +1,7 @@
 import math
+import time
+
+t1 = time.time()
 
 # n(3n-1)/2
 def isPentagon(item):
@@ -23,3 +26,5 @@ while t == 0:
     if isPentagon(n) and isHexagon(n):
         t = 1
         print (n)
+
+print("time:",time.time()-t1)

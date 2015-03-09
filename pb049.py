@@ -1,4 +1,7 @@
 import math
+import time
+
+t1 = time.time()
 
 def QPL(m_list):
     if len(m_list) == 1:
@@ -74,4 +77,4 @@ for i in range(0,3):
 
 print(answer)
                 
-        
+print("time:",time.time()-t1)        

@@ -1,3 +1,7 @@
+import time
+
+t1 = time.time()
+
 #calculate the numbers all in a ten digits array
 
 # define an add of the two numbers
@@ -42,3 +46,5 @@ for i in range(1,N+1):
     total = add(total,power(i))
 
 print (show(total))
+
+print("time:",time.time()-t1)

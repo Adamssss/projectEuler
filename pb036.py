@@ -1,21 +1,19 @@
+import time
+
+t1 = time.time()
+
 def binary(x):
     b = []
     while x > 0:
-        if x%2 == 0:
-            b.append(0)
-        if x%2 == 1:
-            b.append(1)
+        b.append(x%2)
         x = x//2
     length = len(b)//2
     if length == 0:
         return True
-    temp = True
-    i = 0
-    while temp and i < length:
-        if not b[i] == b[len(b)-1-i]:
-            temp = False
-        i += 1
-    return temp
+    for i in range(0,length):
+        if b[i] != b[-1-i]:
+            return False
+    return True
 
 def decimal(x):
     d = []
@@ -25,13 +23,10 @@ def decimal(x):
     length = len(d)//2
     if length == 0:
         return True
-    temp = True
-    i = 0
-    while temp and i < length:
-        if not d[i] == d[len(d)-1-i]:
-            temp = False
-        i += 1
-    return temp
+    for i in range(0,length):
+        if d[i] != d[-1-i]:
+            return False
+    return True
 
 total = 0
 for i in range(1,1000000):
@@ -39,3 +34,5 @@ for i in range(1,1000000):
         total += i
 
 print (total)
+
+print("time:",time.time()-t1)

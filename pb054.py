@@ -1,4 +1,7 @@
 import math
+import time
+
+t1 = time.time()
 
 # read the pokers into a list
 f = open('pb054_poker.txt','r')
@@ -148,4 +151,6 @@ for i in range(0,1000):
         cp1w += 1
 
 print (cp1w)
+
+print("time:",time.time()-t1)
     

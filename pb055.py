@@ -1,3 +1,7 @@
+import time
+
+t1 = time.time()
+
 # use array to represent numbers backwards
 def toArray(num):
     a = []
@@ -40,3 +44,4 @@ for i in range(1,10001):
         count += 1
 print (count)       
     
+print("time:",time.time()-t1)

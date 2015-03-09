@@ -1,3 +1,7 @@
+import time
+
+t1 = time.time()
+
 fac = [1,1]
 for i in range(2,10):
     fac.append(fac[-1]*i)
@@ -77,5 +81,5 @@ for i in range(1,3):
 
 print (total)
 
-
+print("time:",time.time()-t1)
 

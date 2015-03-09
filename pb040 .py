@@ -1,4 +1,7 @@
 import math
+import time
+
+t1 = time.time()
 
 dig = []
 dig.append([1,1])
@@ -28,3 +31,5 @@ for i in range(0,7):
     product *= num(dig[n-1])
 
 print (product)
+
+print("time:",time.time()-t1)

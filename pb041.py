@@ -1,3 +1,8 @@
+import time
+
+t1 = time.time()
+
+
 # 987654321 9-dig pandigital always has divisor 9
 # 87654321 8-dig pandigtal also always has divisor 9
 
@@ -49,3 +54,5 @@ for i in QPL([7,6,5,4,3,2,1]):
     if isPrime(num):
         print(num)
         break
+
+print("time:",time.time()-t1)

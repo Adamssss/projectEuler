@@ -1,3 +1,7 @@
+import time
+
+t1 = time.time()
+
 N = 1001
 
 #length of diagonal
@@ -36,3 +40,5 @@ for i in range(0,Nd):
     total += tr[i]+tl[i]+bl[i]+br[i]
 
 print (total)
+
+print("time:",time.time()-t1)

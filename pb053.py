@@ -1,3 +1,7 @@
+import time
+
+t1 = time.time()
+
 fact = [1]
 
 for i in range(1,101):
@@ -15,3 +19,5 @@ for i in range(1,101):
             count += 1
 
 print (count)
+
+print("time:",time.time()-t1)

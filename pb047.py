@@ -1,29 +1,32 @@
 import math
+import time
 
-prime = [2,3,5]
-primen = 2
-oddcom = []
+t1 = time.time()
 
 N = 200000
 
-while prime[primen] < N:
-    b = prime[primen]
-    t = 1
-    while (t == 1):
+prime = [2,3]
+b = 3
+
+while True:
+
+    
+    while True:
         b = b+2
         i = 0
-        t = 0
-        while (prime[i]*prime[i] < b)and (t == 0):
+        t = True
+        while (prime[i]*prime[i] < b):
             i=i+1
             if (b%prime[i] == 0):
-                t = 1
-
+                t = False
+                break
                 
-        if (t == 0):
-            primen += 1
+        if t:
             prime.append(b)
-        if t == 1:
-            oddcom.append(b)
+            break
+        
+    if b > N:
+        break
 
 
 # the distinct factors
@@ -56,3 +59,5 @@ for i in range(1,N):
     if consect(i,4):
         print (i)
         break
+
+print("time:",time.time()-t1)

@@ -1,4 +1,7 @@
 import math
+import time
+
+t1 = time.time()
 
 # n(3n-1)/2
 N = 10000
@@ -24,3 +27,5 @@ for i in range(1,N-1):
                     lowest = D
 
 print (lowest)
+
+print("time:",time.time()-t1)

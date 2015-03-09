@@ -1,4 +1,7 @@
 import math
+import time
+
+t1 = time.time()
 
 prime = [2,3,5]
 primen = 2
@@ -81,3 +84,5 @@ while len(target) > 0:
 
 
 print (count)
+
+print("time:",time.time()-t1)

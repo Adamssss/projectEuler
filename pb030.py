@@ -1,3 +1,7 @@
+import time
+
+t1 = time.time()
+
 fifthPower = []
 for i in range(0,10):
     fifthPower.append(i*i*i*i*i)
@@ -17,3 +21,5 @@ for i in range(0,len(numbers)):
     total += numbers[i]
 
 print(total)
+
+print("time:",time.time()-t1)

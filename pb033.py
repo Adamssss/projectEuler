@@ -1,3 +1,6 @@
+import time
+
+t1 = time.time()
 
 cases =[]
 for i in range(1,10):
@@ -31,4 +34,6 @@ product = 1
 for i in range(0,len(cases)):
     product *= test(cases[i])
 
-print (product)
+print (int(product))
+
+print("time:",time.time()-t1)

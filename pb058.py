@@ -1,4 +1,7 @@
 import math
+import time
+
+t1 = time.time()
 
 # define a method to check if it is a prime
 def isPrime(num):
@@ -51,3 +54,5 @@ while not fallBelow(dpr[i]):
     gen(i)
 
 print (i*2+1)
+
+print("time:",time.time()-t1)

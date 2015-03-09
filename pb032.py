@@ -1,3 +1,7 @@
+import time
+
+t1 = time.time()
+
 # list the first five numbers
 # there is no way that 10*1000 or 100*100 can be 3 digits
 
@@ -89,6 +93,6 @@ for i in range(0,len(possibleSums)):
 
 print (total)
 
-    
+print("time:",time.time()-t1)   
                     
         

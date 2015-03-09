@@ -1,3 +1,6 @@
+import time
+
+t1 = time.time()
 
 # read the ciphers into a list
 f = open('pb059_cipher.txt','r')
@@ -98,4 +101,7 @@ for i in range(97,123):
                 #print(i,j,k)
                 #show(temp)
                 sumOf(temp)
+                
+print("time:",time.time()-t1)
+
 

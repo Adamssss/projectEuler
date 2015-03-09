@@ -1,3 +1,7 @@
+import time
+
+t1 = time.time()
+
 # f(i,j) = f(i-1,j)+f(i,j-Pi)
 # i kinds of notes to make up money equals j
 
@@ -17,3 +21,5 @@ def f(i,j):
 
     
 print (f(8,200))
+
+print("time:",time.time()-t1)

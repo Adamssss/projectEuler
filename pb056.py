@@ -1,3 +1,7 @@
+import time
+
+t1 = time.time()
+
 def times(x,b):
     result = x[:]
     for i in range(0,len(x)):
@@ -34,3 +38,5 @@ for i in range(1,100):
             largest = n
 
 print (largest)
+
+print("time:",time.time()-t1)

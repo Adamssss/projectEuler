@@ -1,8 +1,13 @@
+import time
+
+t1 = time.time()
+
 # it's common sense that 142857 is the answer
 # I've been knowing it through my lifetime
 # so the code would be
 
 print(142857)
+print("time: 0")
 
 # okay I'm gonna pretend I don't know it and do it properly
 
@@ -43,3 +48,5 @@ while True:
         continue
     print (i)
     break
+
+print("time:",time.time()-t1)

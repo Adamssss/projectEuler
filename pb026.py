@@ -1,3 +1,6 @@
+import time
+
+t1 = time.time()
 
 # a function that returns the recurring cycle
 # returns 0 when divided totally
@@ -32,3 +35,4 @@ for i in range(2,1000):
 print (largesti)
     
     
+print("time:",time.time()-t1)

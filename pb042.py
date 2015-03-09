@@ -1,4 +1,7 @@
 import math
+import time
+
+t1 = time.time()
 
 # read the words into a list
 f = open('pb042_words.txt','r')
@@ -31,3 +34,5 @@ for i in range(0,len(words)):
         count += 1
 
 print (count)
+
+print("time:",time.time()-t1)

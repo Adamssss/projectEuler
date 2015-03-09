@@ -1,3 +1,6 @@
+import time
+
+t1 = time.time()
 
 # code QPL generator copied from pb 41
 def QPL(m_list):
@@ -26,3 +29,5 @@ for i in QPL([9,8,7,6,5,4,3,2,1,0]):
         total += num
         
 print (total)
+
+print("time:",time.time()-t1)

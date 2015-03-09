@@ -1,3 +1,7 @@
+import time
+
+t1 = time.time()
+
 # a <= b <= c
 # a <= p/3
 # b <= p/2
@@ -17,3 +21,5 @@ for p in range(12,1001):
         largestp = p
 
 print (largestp)
+
+print("time:",time.time()-t1)

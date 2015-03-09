@@ -1,4 +1,7 @@
 import math
+import time
+
+t1 = time.time()
 
 prime = [2,3,5]
 primen = 2
@@ -50,3 +53,5 @@ for i in range(0,500):
     if isPrime(test):
         print (test)
         break   
+
+print("time:",time.time()-t1)
