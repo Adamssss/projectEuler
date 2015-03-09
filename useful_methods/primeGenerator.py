@@ -2,13 +2,12 @@ import time
 
 t1 = time.time()
 
-# prime generator 4.0
+# prime generator 4.1
 
 prime = [2,3]
-total = 5
+b = 3
 
 while True:
-    b = prime[-1]
 
     
     while True:
