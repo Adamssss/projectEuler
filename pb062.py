@@ -37,10 +37,9 @@ def isInList(item,lst):
     return index
 
 whole = []
-whole.append([digToNumber(1),1,1])
-whole.append([digToNumber(8),1,2])
 
-for i in range(3,15000):
+
+for i in range(345,15000):
     c = i*i*i
     n = digToNumber(c)
     t = isInList(n,whole)
@@ -50,7 +49,7 @@ for i in range(3,15000):
         whole[t][1] += 1
         whole[t].append(i)
         if whole[t][1] == 5:
-            print (math.pow(whole[t][2],3))
+            print (int(math.pow(whole[t][2],3)))
             break
 
 print("time:",time.time()-t1)
