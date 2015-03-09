@@ -1,21 +1,36 @@
-prime = [2,3,5]
-primen = 2
+import time
 
-while prime[primen] < 100000:
-    b = prime[primen]
-    t = 1
-    while (t == 1):
+t1 = time.time()
+
+# prime generator 4.0
+
+prime = [2,3]
+total = 5
+
+while True:
+    b = prime[-1]
+
+    
+    while True:
         b = b+2
         i = 0
-        t = 0
-        while (prime[i]*prime[i] < b)and (t == 0):
+        t = True
+        while (prime[i]*prime[i] < b):
             i=i+1
             if (b%prime[i] == 0):
-                t = 1
-
+                t = False
+                break
                 
-        if (t == 0):
-            primen += 1
+        if t:
             prime.append(b)
+            break
+        
+    if b > 1000000:
+        break
+
+
 
 print (len(prime)-1)
+
+
+print("time:",time.time()-t1)
