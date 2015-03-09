@@ -1,3 +1,7 @@
+import time
+
+t1 = time.time()
+
 # date: 1900/1/1 is Monday
 date = [1900,1,1,1]
 
@@ -49,6 +53,6 @@ while temp == 1:
 
 print (count)
 
-        
+print("time:",time.time()-t1)        
 
     

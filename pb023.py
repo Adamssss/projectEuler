@@ -1,3 +1,7 @@
+import math
+import time
+
+t1 = time.time()
 
 # code copied from pb 21
 
@@ -98,7 +102,7 @@ for i in range(1,N):
 
 print (total)          
     
-    
+print("time:",time.time()-t1)    
 
     
     

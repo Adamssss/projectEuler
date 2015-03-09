@@ -1,4 +1,7 @@
 import math
+import time
+
+t1 = time.time()
 
 fn1 = 1
 fn2 = 1
@@ -14,3 +17,5 @@ while dig < 1000:
     dig = math.floor(math.log10(fn3))+1
 
 print (count)
+
+print("time:",time.time()-t1)

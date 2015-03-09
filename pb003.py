@@ -1,39 +1,41 @@
-# use some code from problem 7
+import time
+
+t1 = time.time()
 
 
+prime = [2,3,5]
+primen = 2
 
-a = [2,3,5]
-n = 2
-while n < 1000:
-    b = a[n]
+while prime[primen] < 10000:
+    b = prime[primen]
     t = 1
     while (t == 1):
         b = b+2
         i = 0
         t = 0
-        while (i < n):
+        while (prime[i]*prime[i] < b)and (t == 0):
             i=i+1
-            if (b%a[i] == 0):
+            if (b%prime[i] == 0):
                 t = 1
-
                 
         if (t == 0):
-            n = n+1
-            a.append(b)
+            primen += 1
+            prime.append(b)
+
 
 number = 600851475143
-i = 1
+i = 0
 while number > 1:
-    if i < len(a):
-        if number%a[i-1] == 0:
-            number = number / a[i-1]
-            largestA = a[i-1]
-
+    p = prime[i]
+    if number%p == 0:
+        number = number // p
+        largestA = p
 
     i = i+1
 
 print (largestA)
 
+print("time:",time.time()-t1)
 
 
                 

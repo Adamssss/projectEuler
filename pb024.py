@@ -1,3 +1,6 @@
+import time
+
+t1 = time.time()
 
 # the number of order of the one that is wanted
 N = 1000000
@@ -35,3 +38,5 @@ for i in range(0,10):
     number = number*10 + answer[i]
 
 print (number)
+
+print("time:",time.time()-t1)

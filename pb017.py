@@ -1,3 +1,7 @@
+import time
+
+t1 = time.time()
+
 count = 0
 for i in range(1,1001):
     #one 3
@@ -163,3 +167,4 @@ for i in range(1,1001):
 
 print (count)
     
+print("time:",time.time()-t1)

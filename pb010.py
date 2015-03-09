@@ -1,31 +1,33 @@
-# code copy from pb007
+import time
 
-a = [2,3,5]
-n = 2
+t1 = time.time()
 
-while a[n]<2000000:
-    b = a[n]
-    t = 1
-    while (t == 1):
+
+prime = [2,3]
+total = 5
+
+while True:
+    b = prime[-1]
+    while True:
         b = b+2
         i = 0
-        t = 0
-        while (a[i]*a[i] < b) and( t==0 ):
+        t = True
+        while (prime[i]*prime[i] < b):
             i=i+1
-            if (b%a[i] == 0):
-                t = 1
-
+            if (b%prime[i] == 0):
+                t = False
+                break
                 
-        if (t == 0):
-            n = n+1
-            a.append(b)
+        if t:
+            prime.append(b)
+            break
+        
+    if b > 2000000:
+        break
 
+    total += b
 
-totalSum = 0
-for i in range(0,n):
-    totalSum = totalSum + a[i]
+print (total)
 
-print (totalSum)
-
-
+print("time:",time.time()-t1)
                 

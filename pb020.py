@@ -1,3 +1,7 @@
+import time
+
+t1 = time.time()
+
 # factor
 def fact(x):
     if x == 1:
@@ -11,3 +15,5 @@ for i in range(0,len(number)):
     sumOfDigits += ord(number[i])-48
 
 print (sumOfDigits)
+
+print("time:",time.time()-t1)

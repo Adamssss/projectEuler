@@ -1,3 +1,7 @@
+import time
+
+t1 = time.time()
+
 def gcd(x,y):
     if x < y:
         temp = x
@@ -18,3 +22,5 @@ while i < N:
     i = i+1
 
 print (lcm)
+
+print("time:",time.time()-t1)

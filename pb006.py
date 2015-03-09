@@ -1,3 +1,7 @@
+import time
+
+t1 = time.time()
+
 N = 100
 sumOfSquare = 0
 totalSum = 0
@@ -14,3 +18,5 @@ squareOfSum = totalSum * totalSum
 difference = squareOfSum - sumOfSquare
 
 print (difference)
+
+print("time:",time.time()-t1)

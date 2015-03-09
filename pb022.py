@@ -1,3 +1,6 @@
+import time
+
+t1 = time.time()
 
 # read the names into a list
 f = open('pb022_names.txt','r')
@@ -49,4 +52,5 @@ for i in range(0,len(names)):
 
 print(totalScore)
 
+print("time:",time.time()-t1)
     

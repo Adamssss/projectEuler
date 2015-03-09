@@ -1,3 +1,7 @@
+import time
+
+t1 = time.time()
+
 string = []
 
 for i in range(0,1000000):
@@ -56,6 +60,7 @@ for i in range(0,1000000):
 
 print (string.index(largest)+1)
 
+print("time:",time.time()-t1)
 
 
     

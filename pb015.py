@@ -1,3 +1,7 @@
+import time
+
+t1 = time.time()
+
 matrix ={}
 # the way to the all first row points are 1
 for i in range(0,21):
@@ -11,3 +15,5 @@ for i in range(1,21):
         matrix[i,j] = matrix[i-1,j] +matrix[i,j-1]
 
 print (matrix[20,20])
+
+print("time:",time.time()-t1)

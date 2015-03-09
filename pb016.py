@@ -1,3 +1,7 @@
+import time
+
+t1 = time.time()
+
 power = 15
 number = [8,6,7,2,3]
 
@@ -21,3 +25,5 @@ for i in range(0,len(number)):
     sums += number[i]
 
 print (sums)
+
+print("time:",time.time()-t1)
