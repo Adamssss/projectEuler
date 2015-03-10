@@ -3,31 +3,44 @@ import time
 
 t1 = time.time()
 
-prime = [2,3,5]
-primen = 2
+prime = [2,3]
+b = 3
 
-while prime[primen] < 1000000:
-    b = prime[primen]
-    t = 1
-    while (t == 1):
+while True:
+
+    if b > 1000000:
+        break
+    
+    while True:
         b = b+2
         i = 0
-        t = 0
-        while (prime[i]*prime[i] < b)and (t == 0):
+        t = True
+        while (prime[i]*prime[i] < b):
             i=i+1
             if (b%prime[i] == 0):
-                t = 1
-
+                t = False
+                break
                 
-        if (t == 0):
-            primen += 1
+        if t:
             prime.append(b)
-
-length = len(prime)
-#print (length)
+            break
+      
+def isPrime(item):
+    root = math.floor(math.sqrt(item))
+    i = 0
+    t = prime[i]
+    while t <= root:
+        if item%t == 0:
+            return False
+        if t < prime[-1]:
+            i += 1
+            t = prime[i]
+        else:
+            t += 2
+    return True
 
 # define a binary search 
-def isPrime(item,lst):
+def isInList(item,lst):
     firstPoint = 0
     endPoint = len(lst)-1
     index = -1
@@ -50,33 +63,28 @@ while len(target) > 0:
     #print (count)
     test = target[0]
     dig = math.floor(math.log10(test))+1
+    target.pop(0)
     if dig == 1:
         count += 1
-        target.remove(test)
+        continue
     if dig > 1:
-        number = []
-        stillPossible = 1
-        target.remove(test)
-        temp = test
-        for i in range(0,dig):
-            number.append(temp%10)
-            temp = temp//10
-            if number[i]%2 == 0:
-                stillPossible = 0
         i = 1
         counted = 0
-        while stillPossible == 1 and i < dig:
+        tl = True
+        while i < dig:
             test = test//10 + (test%10)*math.pow(10,dig-1)
-            if isPrime(test,prime) >= 0:
+            if isPrime(test):
                 i += 1
-                if isPrime(test,target) >= 0:
-                    target.remove(test)
+                ind = isInList(test,target)
+                if ind >= 0:
+                    target.pop(ind)
                 else:
                     counted += 1
             else:
-                stillPossible = 0
+                tl = False
+                break
 
-        if stillPossible == 1:
+        if tl:
             count += dig - counted
             
             
