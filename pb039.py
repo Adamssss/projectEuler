@@ -8,7 +8,7 @@ t1 = time.time()
 
 largest = 0
 largestp = 0
-for p in range(12,1001):
+for p in range(12,1001,2):
     count = 0
     for i in range(1,p//3):
         for j in range(i,p//2):
