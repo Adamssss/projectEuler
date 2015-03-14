@@ -55,15 +55,12 @@ N = 1000000
 # let ele(x) be the function that returns the number of elements in the set
 # ele(x)-els(x-1) would be the phi(x)
 
-el = [0,0]
-
-def ele(num):
-    return phi(num)+el[num-1]
+# in other words: ele(x) = sum(ps)-1
 
 for i in range(2,N+1):
     ps.append(phi(i))
-    el.append(ele(i))
 
-print(el[N])
+print(sum(ps)-1)
+
 print("time:",time.time()-t1)
                 
