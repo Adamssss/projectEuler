@@ -13,23 +13,28 @@ def digfac(num):
         num = num//10
     return result
 
+lp = [0]
+
 def loop(num):
     temp = [num]
     n = num
     while True:
         n = digfac(n)
+        if n < num:
+            r = lp[n]+len(temp)
+            lp.append(r)
+            return r
         if n in temp:
             break
         else:
             temp.append(n)
-    return temp
-
-def chain(num):
-    return len(loop(num))
+    l = len(temp)
+    lp.append(l)
+    return l
 
 count = 0
 for i in range(1,1000000):
-    if chain(i) == 60:
+    if loop(i) == 60:
         count += 1
 
 print(count)
