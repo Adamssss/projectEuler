@@ -3,7 +3,7 @@ import time
 
 t1 = time.time()
 
-# generate prime with s seive
+# generate prime with s sieve
 
 N = 1000000
 
