@@ -3,27 +3,24 @@ import time
 
 t1 = time.time()
 
-prime = [2,3]
-b = 3
+N = 1000000
 
-while True:
+n = (N+1)//2
 
-    if b > 1000000:
-        break
-    
-    while True:
-        b = b+2
-        i = 0
-        t = True
-        while (prime[i]*prime[i] < b):
-            i=i+1
-            if (b%prime[i] == 0):
-                t = False
-                break
-                
-        if t:
-            prime.append(b)
-            break
+p = [True]*(n)
+
+i = 1
+prime = [2]
+
+while i < n:
+    if p[i]:
+        t = 2*i+1
+        prime.append(t)
+        j = i
+        while j < n:
+            p[j] = False
+            j += t
+    i += 1
       
 def isPrime(item):
     root = math.floor(math.sqrt(item))

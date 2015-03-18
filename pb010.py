@@ -3,29 +3,24 @@ import time
 t1 = time.time()
 
 
-prime = [2,3]
-total = 5
+N = 2000000
 
-while True:
-    b = prime[-1]
-    while True:
-        b = b+2
-        i = 0
-        t = True
-        while (prime[i]*prime[i] < b):
-            i=i+1
-            if (b%prime[i] == 0):
-                t = False
-                break
-                
-        if t:
-            prime.append(b)
-            break
-        
-    if b > 2000000:
-        break
+n = (N+1)//2
 
-    total += b
+p = [True]*(n)
+
+i = 1
+total = 2
+
+while i < n:
+    if p[i]:
+        t = 2*i+1
+        total += t
+        j = i
+        while j < n:
+            p[j] = False
+            j += t
+    i += 1
 
 print (total)
 
