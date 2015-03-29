@@ -16,16 +16,15 @@ def isPentagon(item):
         return True
     return False
 
+def findlowest():
+    lowest = N*N*2
+    for i in range(1,N-1):
+        for j in range(i,0,-1):
+            if isPentagon(pentagon[i]+pentagon[j]):
+                D = pentagon[i]-pentagon[j]
+                if isPentagon(D):
+                    return D
 
-lowest = N*N*2
-for i in range(1,N-1):
-    for j in range(i+1,N):
-        if isPentagon(pentagon[i]+pentagon[j]):
-            D = pentagon[j]-pentagon[i]
-            if isPentagon(D):
-                if D < lowest:
-                    lowest = D
-
-print (lowest)
+print(findlowest())
 
 print("time:",time.time()-t1)
