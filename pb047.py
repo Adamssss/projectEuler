@@ -5,46 +5,43 @@ t1 = time.time()
 
 N = 200000
 
-prime = [2,3]
-b = 3
+n = math.floor(math.sqrt(N))+1
 
-while True:
+p = [True]*(n)
 
-    
-    while True:
-        b = b+2
-        i = 0
-        t = True
-        while (prime[i]*prime[i] < b):
-            i=i+1
-            if (b%prime[i] == 0):
-                t = False
-                break
-                
-        if t:
-            prime.append(b)
-            break
-        
-    if b > N:
-        break
+i = 1
+prime = [2]
+
+while i < n:
+    if p[i]:
+        t = 2*i+1
+        prime.append(t)
+        j = i
+        while j < n:
+            p[j] = False
+            j += t
+    i += 1
 
 
 # the distinct factors
 def factors(number):
-    factx = 0
+    factx = 1
     i = 0
     count = 0
-    while number >1:
+    nr = math.floor(math.sqrt(number))
+    while prime[i] <= nr:
         while(number%prime[i] == 0):
             count=count+1
             number = number / prime[i]
+        nr = math.floor(math.sqrt(number))
             
         if count > 0:
             factx += 1
             count = 0
             
         i = i+1
-
+    if number == 1:
+        factx -= 1
     return factx
 
 
