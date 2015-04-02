@@ -12,4 +12,4 @@ more improvement of the efficiency of the solutions will be in progress
 
 Problems found solution but needed more work: 78 86
 
-Problems left to solve later: 84
+Problems left to solve later: 84 88
