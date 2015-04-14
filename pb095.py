@@ -47,49 +47,41 @@ def spd(num):
 
     return int(spd-onum)
 
-longestchain = []
-llc = 0
+def amichain(lst):
+    num = lst[-1]
+    l = len(lst)
+    if num == 0 or num == 1:
+        return 0
+    if ami[num] >= 0:
+        if l == 1:
+            return ami[num]
+        else:
+            return 0
+    nxt = spd(num)
+    if nxt > N:
+        return 0
+    for i in range(0,l):
+        if lst[i] == nxt:
+            for j in range(i,l):
+                ami[lst[j]] = l-i
+            if i == 0:
+                return l
+            else:
+                for j in range(0,i):
+                    ami[lst[j]] = 0
+                return 0
+    lst.append(nxt)
+    return amichain(lst)
 
-def amichain(num):
-    global llc,longestchain
-    if ami[num] > 0:
-        return ami[num]
-    chain = [num]
-    count = 1
-    temp = num
-    while True:
-        temp = spd(temp)
-        if temp == 1 or temp == 0:
-            count = 1
-            break
-        if temp > N:
-            count = 1
-            break
-        if ami[temp] > count:
-            count = 1
-            break    
-        if temp in chain:
-            if temp == chain[0]:
-                if len(chain) > llc:
-                    longestchain = chain[:]
-                    llc = len(chain)
-                break
-            count = 0
-            break
-        chain.append(temp)
-        count += 1
-    for i in chain:
-        ami[i] = count
-
+longest = 0
 for i in range(0,N+1):
-    amichain(i)
+    temp = amichain([i])
+    ami[i] = temp
+    if temp > longest:
+        longest = temp
+        result = i
 
-smallest = N
-for i in longestchain:
-    if i < smallest:
-        smallest = i
-        
-print(smallest)
+print(result)
 
 print("time:",time.time()-t1)  
 
