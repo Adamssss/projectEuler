@@ -20,9 +20,8 @@ while i < n:
             j += t
     i += 1
 
-def spd(number):
-    originNumber = number
-    spd = 1
+def factors(number):
+    factx = 1
     i = 0
     count = 0
     nr = math.floor(math.sqrt(number))
@@ -33,15 +32,13 @@ def spd(number):
         nr = math.floor(math.sqrt(number))
             
         if count > 0:
-            spdtemp = (math.pow(prime[i],count+1)-1)//(prime[i]-1)      
-            spd *= spdtemp
+            factx *= (count+1)
             count = 0
             
         i = i+1
-
     if number > 1:
-        spd *= (number+1)
+        factx *= 2
+    return factx
 
-    return int(spd - originNumber)
 
-print(spd(28))
+print(factors(4))

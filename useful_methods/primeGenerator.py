@@ -4,31 +4,32 @@ t1 = time.time()
 
 # prime generator 4.1
 
-prime = [2,3]
-b = 3
+prime = []
 
-while True:
-
-    
+def primeGen(n):
+    global prime
+    prime.append(2)
+    prime.append(3)
+    b = 3
     while True:
-        b = b+2
-        i = 0
-        t = True
-        while (prime[i]*prime[i] < b):
-            i=i+1
-            if (b%prime[i] == 0):
-                t = False
+        while True:
+            b = b+2
+            i = 0
+            t = True
+            while (prime[i]*prime[i] < b):
+                i=i+1
+                if (b%prime[i] == 0):
+                    t = False
+                    break
+            if t:
+                prime.append(b)
                 break
-                
-        if t:
-            prime.append(b)
+        if b > n:
             break
-        
-    if b > 1000000:
-        break
+    return prime
 
 
-
+primeGen(1000000)
 print (len(prime)-1)
 
 

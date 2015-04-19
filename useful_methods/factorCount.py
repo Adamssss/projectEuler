@@ -15,12 +15,12 @@ def factors(number):
         nr = math.floor(math.sqrt(number))
             
         if count > 0:
-            factx += 1
+            factx *= (count+1)
             count = 0
             
         i = i+1
-    if number == 1:
-        factx -= 1
+    if number > 1:
+        factx *= 2
     return factx
 
 
