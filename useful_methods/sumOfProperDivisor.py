@@ -1,25 +1,8 @@
 import math
 
+# prime generator required
 
-N = 100
-
-n = (N+1)//2
-
-p = [True]*(n)
-
-i = 1
-prime = [2]
-
-while i < n:
-    if p[i]:
-        t = 2*i+1
-        prime.append(t)
-        j = i
-        while j < n:
-            p[j] = False
-            j += t
-    i += 1
-
+# to find out the sum of the proper divisor
 def spd(number):
     originNumber = number
     spd = 1
@@ -42,6 +25,7 @@ def spd(number):
     if number > 1:
         spd *= (number+1)
 
-    return int(spd - originNumber)
+    return spd - originNumber
 
-print(spd(28))
+
+    
