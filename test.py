@@ -41,4 +41,4 @@ def factors(number):
     return factx
 
 
-print(factors(4))
+print(factors(16))
