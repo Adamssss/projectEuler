@@ -19,7 +19,8 @@ def primeSieve(n):
         if p[i]:
             t = 2*i+1
             prime.append(t)
-            j = i
+            p[i] = False
+            j = 2*i*i+2*i
             while j < n:
                 p[j] = False
                 j += t
