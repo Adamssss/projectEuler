@@ -17,7 +17,8 @@ def primeSieve(n):
         if p[i]:
             t = 2*i+1
             prime.append(t)
-            j = i
+            p[i] = False
+            j = 2*i*i+2*i
             while j < n:
                 p[j] = False
                 j += t
@@ -26,37 +27,48 @@ def primeSieve(n):
 
 primeSieve(N)
 
-def factorset(number):
-    originNumber = number
-    result = [1]
+# greatly conbimed method 3.5
+# improved to be most efficient
+def satisfy(number):
+    origin = number
+    result = []
     i = 0
     count = 0
-    nr = math.floor(math.sqrt(number))
+    root = math.floor(math.sqrt(number))
+    nr = root
     p = 2
     while p <= nr:
         while(number%p == 0):
             count=count+1
             number = number / p
         nr = math.floor(math.sqrt(number))
-            
-        if count > 0:
-            nrt = result[:]
-            l = len(nrt)
-            for k in range(count):
-                for j in range(l):
-                    nrt[j] *= p
-                result += nrt[:]
-            count = 0
+
+        t = p
+        while count > 0:
+            if not test(origin,t):
+                return False
+            tr = []
+            for j in result:
+                tjt = j*t
+                if tjt <= root and not test(origin,tjt):
+                    return False
+                tr += [tjt]
+            tr += [t]
+            count -= 1
+            t *= p
+        result += tr
             
         i = i+1
         p = prime[i]
     if number > 1:
         n = int(number)
-        nrt = result[:]
-        for j in range(len(nrt)):
-            nrt[j] *= n
-        result += nrt
-    return result
+        if not test(origin,n):
+            return False
+        for j in result:
+            tn = j*n
+            if tn <= root and not test(origin,tn):
+                return False
+    return True
 
 def isPrime(item):
     root = math.floor(math.sqrt(item))
@@ -72,13 +84,8 @@ def isPrime(item):
             t += 2
     return True
 
-def satisfy(n):
-    temp = factorset(n)
-    for i in range(len(temp)):
-        d = temp[i]
-        if not isPrime(d+n//d):
-            return False
-    return True
+def test(n,d):
+    return isPrime(d+n//d)
 
 total = 1
 l = len(prime)
@@ -91,7 +98,5 @@ while i < l:
 
 print(total)
 
-print("time:",time.time()-t1)  
-
-
-    
+print("time:",time.time()-t1)
+# time: 196.90803408622742
