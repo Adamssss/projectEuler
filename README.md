@@ -1,7 +1,10 @@
 # projectEuler
-project euler
 
-the python codes for solving problems on project Euler
+Project Euler 
+
+the python codes for solving problems on project Euler 
+
+uploaded by now: problems 1-150
 
 from 
 	https://projecteuler.net/problems
