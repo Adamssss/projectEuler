@@ -3,15 +3,57 @@ import time
 
 t1 = time.time()
 
-# define a method to check if it is a prime
-def isPrime(num):
-    if num%2 == 0:
-        return False
-    i = 3
-    while i < math.sqrt(num):
-        if num%i == 0:
+prime = []
+
+def primeSieve(n):
+    global prime
+    n = (n+1)//2
+    p = [True]*(n)
+    i = 1
+    prime.append(2)
+    while i < n:
+        if p[i]:
+            t = 2*i+1
+            prime.append(t)
+            p[i] = False
+            j = 2*i*i+2*i
+            while j < n:
+                p[j] = False
+                j += t
+        i += 1
+    return prime
+
+primeSieve(10000)
+
+def genPrime():
+    global prime
+    b = prime[-1]
+    while True:
+        b = b+2
+        i = 0
+        t = True
+        while (prime[i]*prime[i] < b):
+            i=i+1
+            if (b%prime[i] == 0):
+                t = False
+                break
+        if t:
+            prime.append(b)
+            break
+    return b
+
+def isPrime(item):
+    root = math.floor(math.sqrt(item))
+    i = 0
+    t = prime[i]
+    while t <= root:
+        if item%t == 0:
             return False
-        i += 2
+        if t < prime[-1]:
+            i += 1
+            t = prime[i]
+        else:
+            t += genPrime()
     return True
 
 # diagonal prime ratio

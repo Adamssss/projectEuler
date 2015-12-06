@@ -3,68 +3,27 @@ import time
 
 t1 = time.time()
 
-N = 30000
-n = 5
+prime = []
 
-prime = [2,3,5]
-primen = 2
+def primeSieve(n):
+    global prime
+    n = (n+1)//2
+    p = [True]*(n)
+    i = 1
+    prime.append(2)
+    while i < n:
+        if p[i]:
+            t = 2*i+1
+            prime.append(t)
+            p[i] = False
+            j = 2*i*i+2*i
+            while j < n:
+                p[j] = False
+                j += t
+        i += 1
+    return prime
 
-while prime[primen] < 10000:
-    b = prime[primen]
-    t = 1
-    while (t == 1):
-        b = b+2
-        i = 0
-        t = 0
-        while (prime[i]*prime[i] < b)and (t == 0):
-            i=i+1
-            if (b%prime[i] == 0):
-                t = 1
-               
-        if (t == 0):
-            primen += 1
-            prime.append(b)
-
-# possible set
-ps = []
-
-# expnad the ps
-def moveTo(num):
-    for i in range(0,len(ps)):
-        temp = app(ps[i],num)
-        if test(temp):
-            if show(temp):
-                return True
-            ps.append(temp)
-
-    if num <15 and isPrime(num):
-        ps.append([num])
-    return False
-
-# append the set to the sum
-def app(theset,x):
-    total = sum(theset)
-    temp = theset[:]
-    temp.append(x - total)
-    return temp
-
-# test the set meets the pair prime rule
-def test(testset):
-    if testset[-1] < testset[-2]:
-        return False
-    if not isPrime(testset[-1]):
-        return False
-    total = sum(testset) + (n-len(testset))*testset[-1]
-    if total > N:
-        return False
-    for i in range(0,len(testset)-1):
-        a = seq(testset[i],testset[-1])
-        if not isPrime(a):
-            return False
-        b = seq(testset[-1],testset[i])
-        if not isPrime(b):
-            return False
-    return True
+primeSieve(10000)
 
 # make two number concatenate
 def seq(a,b):
@@ -85,16 +44,28 @@ def isPrime(item):
             t += 2
     return True
 
+ps = [[3]]
 
-# show the list
-def show(theset):
-    if len(theset) == n:
-        print (sum(theset))
-        return True
-    return False
+def canadd(tset,num):
+    for i in tset:
+        if not isPrime(seq(i,num)):
+            return False
+        if not isPrime(seq(num,i)):
+            return False
+    return True
 
-for i in range(3,N):
-    if moveTo(i):
-        break
+def getanswer():
+    global ps
+    for j in range(3,len(prime)):
+        for k in ps:
+            if canadd(k,prime[j]):
+                ps.append(k+[prime[j]])
+                if len(k) == 4:
+                    print(sum(ps[-1]))
+                    return
+        if prime[j] < 20:
+            ps.append([prime[j]])
+
+getanswer()
 
 print("time:",time.time()-t1)

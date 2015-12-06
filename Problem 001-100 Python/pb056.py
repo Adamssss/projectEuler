@@ -31,9 +31,11 @@ def sumOf(x):
     return total
 
 largest = 0
-for i in range(1,100):
-    for j in range(1,100):
-        n = sumOf(power([1],i,j))
+for i in range(2,100):
+    t = [1]
+    for j in range(99):
+        t = times(t,i)
+        n = sumOf(t)
         if n > largest:
             largest = n
 
