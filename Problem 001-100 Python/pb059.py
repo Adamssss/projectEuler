@@ -35,6 +35,18 @@ def decrypt(key):
             k = 0
     return temp
 
+def decryptone(k,d):
+    r = []
+    kd = 0
+    for i in ciphers:
+        if kd == d:
+            t = i^k
+            r.append(t)
+        kd += 1
+        if kd == 3:
+            kd = 0
+    return r
+
 def show(cipher):
     line = ""
     for i in range(0,len(cipher)):
@@ -92,7 +104,36 @@ def english(cipher):
         return False
 
     return True
-    
+
+def Possenglish(cipher):
+    jjs = 0
+    qqs = 0
+    xxs = 0
+    zzs = 0
+    letters = len(cipher)
+    jjl = letters*0.02
+    qql = letters*0.01
+    xxl = letters*0.01
+    zzl = letters*0.01
+    for i in range(letters):            
+        if cipher[i] == 74 or cipher[i] == 106:
+            jjs += 1
+            if jjs > jjl:
+                return False
+        if cipher[i] == 81 or cipher[i] == 113:
+            qqs += 1
+            if qqs > qql:
+                return False
+        if cipher[i] == 88 or cipher[i] == 120:
+            xxs += 1
+            if xxs > xxl:
+                return False
+        if cipher[i] == 90 or cipher[i] == 122:
+            zzs += 1
+            if zzs > zzl:
+                return False
+    return True
+
 def sumOf(cipher):
     total = 0
     for i in range(0,len(cipher)):
@@ -101,14 +142,16 @@ def sumOf(cipher):
 
 def getkey():
     for i in range(97,123):
-        for j in range(97,123):
-            for k in range(97,123):
-                temp = decrypt([i,j,k])
-                if english(temp):
-                    #print(i,j,k)
-                    #show(temp)
-                    sumOf(temp)
-                    return
+        if Possenglish(decryptone(i,0)):
+            for j in range(97,123):
+                if Possenglish(decryptone(j,1)):
+                    for k in range(97,123):
+                        temp = decrypt([i,j,k])
+                        if english(temp):
+                            #print(i,j,k)
+                            #show(temp)
+                            sumOf(temp)
+                            return
 
 getkey()
          
